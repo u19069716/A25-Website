@@ -1,10 +1,59 @@
 /*******************/
 /* General Styling */
 /*******************/
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+/********/
+/* Menu */
+/********/
+
+#menu-button {
+  position: fixed;
+  top: 50%;
+  right: 2%;
+  background-color: black;
+  transform: translateY(-50%);
+  content: "";
+  height: 50px;
+  width: 100px;
+  z-index: 1000;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border: 5px solid white;
+  cursor: pointer;
+}
+
+#menu {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: #eaba6b;
+  z-index: 999;
+}
+
+#menu ul {
+  list-style: none;
+  text-align: center;
+}
+
+#menu ul li {
+  color: white;
+  font-size: 500%;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
 }
 
 body,
