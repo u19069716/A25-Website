@@ -1,0 +1,38 @@
+/**************/
+/* Store Page */
+/**************/
+
+.productimg {
+  width: 250px;
+  height: 200px;
+  display: block;
+  padding-top: 10px;
+  margin: auto;
+}
+.productDiv {
+  border: solid 1px;
+  width: 280px;
+  height: 280px;
+  float: left;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.imgText {
+  text-align: center;
+  font-size: 25px;
+}
+
+#row1 {
+  width: 80%;
+  height: 300px;
+  display: block;
+  margin: auto;
+}
+
+#row2 {
+  width: 80%;
+  height: 300px;
+  display: block;
+  margin: auto;
+}
