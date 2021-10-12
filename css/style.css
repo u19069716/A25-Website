@@ -1,3 +1,118 @@
+/*******************/
+/* General Styling */
+/*******************/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/*************/
+/* Home Page */
+/*************/
+
+.top-portion,
+.bottom-portion {
+  display: flex;
+  height: 10%;
+  width: 100%;
+  position: relative;
+}
+
+.top-portion,
+.bottom-portion {
+  background-color: #254e70;
+}
+
+.top-portion img {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110%;
+  height: auto;
+}
+
+.bottom-portion img {
+  position: absolute;
+  bottom: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110%;
+  height: auto;
+}
+
+.center-portion {
+  display: flex;
+  height: 80%;
+  width: 100%;
+  background-color: #1f1f1f;
+  color: white;
+}
+
+.center-left,
+.center-right {
+  display: flex;
+  height: 100%;
+}
+
+.center-left {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 100px 0 100px;
+  width: 66%;
+  height: 100%;
+}
+
+.center-right {
+  width: 34%;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-left h1 {
+  font-size: 300%;
+  margin: 0 0 15px 0;
+}
+
+.home-page-img {
+  content: "";
+  height: 80%;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  position: relative;
+  z-index: 1;
+}
+
+.home-page-img img {
+  border: 5px solid black;
+}
+
+.home-page-img:before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 110%;
+  transform: rotate(3deg) skewX(7deg) skewY(1deg) translateX(-46%)
+    translateY(-48%);
+  background: rgb(0, 0, 0);
+  border: 10px solid white;
+}
+
 /**************/
 /* Store Page */
 /**************/
