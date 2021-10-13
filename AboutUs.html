@@ -11,84 +11,6 @@
 		<script src="js/main.js"></script>
 		<link rel="stylesheet" href="css/style.css">
 		<title>A25 - About Us/Contact Us</title>
-		<style>
-			#AboutUs {
-				text-align: center;
-			}
-
-			#OurTeam {
-				text-align: center;
-			}
-
-			#Description {
-				text-align: center;
-			}
-
-			#Team {
-				display: flex;
-				text-align: center;
-			}
-
-			img {
-				border-radius: 50%;
-				width: 190%;
-				height: 75%;
-			}
-
-			#Kiara {
-				padding: 10%;
-				text-align: center;
-				/*border: 1px solid rgb(235, 14, 14);*/
-				padding-top: 1%;
-				padding-bottom: 1%;
-			}
-
-			#Alex {
-				padding: 10%;
-				/*border: 1px solid rgb(235, 14, 14);*/
-				padding-top: 1%;
-				padding-bottom: 1%;
-			}
-
-			#Matthew {
-				padding: 10%;
-				/*border: 1px solid rgb(235, 14, 14);*/
-				padding-top: 1%;
-				padding-bottom: 1%;
-			}
-
-			#Ayla {
-				padding: 10%;
-				/*border: 1px solid rgb(235, 14, 14);*/
-				padding-top: 1%;
-				padding-bottom: 1%;
-			}
-
-			/*div{border: 1px solid black;}*/
-
-			#left {
-				float: left;
-				padding: 10px;
-				width: 40%;
-				padding-top: 0px;
-				padding-left: 3%;
-			}
-
-			#right {
-				float: right;
-				padding: 10px;
-				width: 45%;
-				padding-top: 0px;
-				padding-left: 3%;
-				border-left: 1px solid black;
-			}
-
-			h1 {
-				padding-bottom: 0px;
-				text-decoration: underline;
-				text-align: center;
-			}
-		</style>
 	</head>
 
 <body>
@@ -111,83 +33,85 @@
 			</li>
 		</ul>
 	</div>
-	<h1 id="AboutUs">About us</h1>
-	<p id="Description">Here at A25 we strive to produce the best products. With our Lovely team we love working
-		together to create innovative designs that suite your needs and desire. </p>
+	<div class="page-wrapper about-contact-page">
+		<h1 id="AboutUs" class="about-us-h1">About us</h1>
+		<p id="Description">Here at A25 we strive to produce the best products. With our Lovely team we love working
+			together to create innovative designs that suite your needs and desire. </p>
 
-	<p id="Description">A25 established itself in 2010 we are a group of young designers and programmers that felt the
-		industry needed a fresh new perspective on the ever changing industry that we are apart of. We pride ourseleves
-		on keeping up to date on what is trending in different technologies and to be able to produce these for our
-		clients. We think this sets us aside to most companies as we feel that we would be open to any new idea and try
-		our best to encapsulate what your heart desires. </p>
+		<p id="Description">A25 established itself in 2010 we are a group of young designers and programmers that felt
+			the
+			industry needed a fresh new perspective on the ever changing industry that we are apart of. We pride
+			ourseleves
+			on keeping up to date on what is trending in different technologies and to be able to produce these for our
+			clients. We think this sets us aside to most companies as we feel that we would be open to any new idea and
+			try
+			our best to encapsulate what your heart desires. </p>
 
 
-	<h2 id="OurTeam">Our Team</h2>
-	<div id="Team">
-		<div id="Alex">
-			<img src="images/Alex.jpg" alt="Alex">
-			<p>Alex</p>
+		<h2 id="OurTeam">Our Team</h2>
+		<div id="Team">
+			<div id="Alex" class="center-image-text">
+				<img src="images/Alex.jpg" alt="Alex" class="about-us-img">
+				<p>Alex</p>
+			</div>
+
+			<div id="Kiara" class="center-image-text">
+				<img src="images/Kiara.jpg" alt="Kiara" class="about-us-img">
+				<p>Kiara</p>
+			</div>
+
+			<div id="Matthew" class="center-image-text">
+				<img src="images/Mathew.jpg" alt="Matt" class="about-us-img">
+				<p>Matthew</p>
+			</div>
+
+			<div id="Ayla" class="center-image-text">
+				<img src="images/Ayla.jpg" alt="Ayla" class="about-us-img">
+				<p>Ayla</p>
+			</div>
 		</div>
-
-		<div id="Kiara">
-			<img src="images/Kiara.jpg" alt="Kiara">
-			<p>Kiara</p>
-		</div>
-
-		<div id="Matthew">
-			<img src="images/Mathew.jpg" alt="Matt">
-			<p>Matthew</p>
-		</div>
-
-		<div id="Ayla">
-			<img src="images/Ayla.jpg" alt="Ayla">
-			<p>Ayla</p>
-		</div>
-	</div>
-	<hr />
-	<h1>Contact Us</h1>
-	<div id="left">
-		<h2>Get in touch with us via:</h2>
-		<a href="mailto:emailAdress@gmail.com">emailAdress@gmail.com</a>
-		<p>012 345 6789</p>
-
-		<h2>Working Hours:</h2>
-		<p>Monday - Friday <b>8:00 - 17:00</b></p>
-		<p>Saturday <b>8:00 - 15:00</b></p>
-	</div>
-
-	<div id="right">
-		<h2>We are located at:</h2>
-
-		<div class="mapouter">
-			<div class="gmap_canvas">
-				<iframe width="400" height="300" id="gmap_canvas"
-					src="https://maps.google.com/maps?q=University%20of%20Pretoria&t=&z=13&ie=UTF8&iwloc=&output=embed"
-					frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-				</iframe><a href="https://123movies-to.org"></a>
-				<br>
-				<style>
-					.mapouter {
-						position: relative;
-						text-align: right;
-						height: 300px;
-						width: 400px;
-					}
-				</style>
-				<a href="https://www.embedgooglemap.net">google map in wordpress</a>
-				<style>
-					.gmap_canvas {
-						overflow: hidden;
-						background: none !important;
-						height: 300px;
-						width: 400px;
-					}
-				</style>
+		<hr />
+		<h1 class="about-us-h1">Contact Us</h1>
+		<div class="contact-us-row">
+			<div id="left">
+				<h2>Get in touch with us via:</h2>
+				<a href="mailto:emailAdress@gmail.com">emailAdress@gmail.com</a>
+				<p>012 345 6789</p>
+				<h2>Working Hours:</h2>
+				<p>Monday - Friday <b>8:00 - 17:00</b></p>
+				<p>Saturday <b>8:00 - 15:00</b></p>
+			</div>
+			<div id="right">
+				<h2>We are located at:</h2>
+				<div class="mapouter">
+					<div class="gmap_canvas">
+						<iframe width="400" height="300" id="gmap_canvas"
+							src="https://maps.google.com/maps?q=University%20of%20Pretoria&t=&z=13&ie=UTF8&iwloc=&output=embed"
+							frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+						</iframe><a href="https://123movies-to.org"></a>
+						<br>
+						<style>
+							.mapouter {
+								position: relative;
+								text-align: right;
+								height: 300px;
+								width: 400px;
+							}
+						</style>
+						<a href="https://www.embedgooglemap.net">google map in wordpress</a>
+						<style>
+							.gmap_canvas {
+								overflow: hidden;
+								background: none !important;
+								height: 300px;
+								width: 400px;
+							}
+						</style>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-
-
 </body>
 
 </html>
