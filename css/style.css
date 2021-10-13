@@ -24,20 +24,29 @@
 
 #menu-button {
   position: fixed;
+  opacity: 0.2;
   top: 50%;
-  right: 2%;
-  background-color: black;
+  right: -100px;
   transform: translateY(-50%);
   content: "";
-  height: 50px;
-  width: 100px;
+  font-size: 150%;
+  height: 120px;
+  width: 200px;
   z-index: 1000;
-  color: white;
+  color: rgb(26, 26, 26);
   justify-content: center;
   align-items: center;
   display: flex;
-  border: 5px solid white;
   cursor: pointer;
+  background-image: url("../images/speech_bubble.png");
+  background-position: center;
+  background-size: cover;
+  transition: all cubic-bezier(0.19, 1, 0.165, 1.01) 0.5s;
+}
+
+#menu-button:hover {
+  right: -20px;
+  opacity: 1;
 }
 
 #menu {
@@ -49,6 +58,8 @@
   width: 100%;
   background-color: #eaba6b;
   z-index: 999;
+  transition: all cubic-bezier(0.19, 1, 0.165, 1.01) 0.5s;
+  left: 100%;
 }
 
 #menu ul {
@@ -62,8 +73,22 @@
   cursor: pointer;
 }
 
-.hidden {
-  display: none !important;
+#home-navlink,
+#projects-navlink,
+#merchandise-navlink,
+#contact-us-navlink {
+  transition: all 0.2s;
+}
+
+#home-navlink:hover,
+#projects-navlink:hover,
+#merchandise-navlink:hover,
+#contact-us-navlink:hover {
+  text-shadow: 3px 3px #333333;
+}
+
+.menu-visible {
+  transform: translateX(-100%);
 }
 
 body,

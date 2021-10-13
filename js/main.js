@@ -11,7 +11,7 @@ window.onload = () => {
 
   // Add event listener to menu button to display menu when clicked
   menuButton.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
+    menu.classList.toggle("menu-visible");
   });
 
   // Add event listener to navlink items to navigate to the relevant urls when clicked
