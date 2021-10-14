@@ -23,6 +23,9 @@ function setSelectedProject(projectIndex) {
 window.onload = () => {
   console.log("Javascript loaded");
 
+  // Check what page has called this javascript
+  const page = window.location.pathname.split("/").pop();
+
   // Collect interactive HTML elements
   const menuButton = document.getElementById("menu-button");
   const menu = document.getElementById("menu");
@@ -32,6 +35,7 @@ window.onload = () => {
   const contactUsNavLink = document.getElementById("contact-us-navlink");
   const projectsNavItems = document.getElementsByClassName("projects-nav-item");
   const projects = document.getElementsByClassName("project");
+  const products = document.getElementsByClassName("productDiv");
 
   // Add event listener to menu button to display menu when clicked
   menuButton.addEventListener("click", () => {
@@ -52,25 +56,45 @@ window.onload = () => {
     window.location.href = "AboutUs.html";
   });
 
-  // Set selected project to first project
-  setSelectedProject(0);
-  projectsNavItems[0].classList.add("projects-nav-item-selected");
+  // Check what page this javascript is getting called from
+  if (page === "projects.html") {
+    // Set selected project to first project
+    setSelectedProject(0);
+    projectsNavItems[0].classList.add("projects-nav-item-selected");
 
-  // Iterate over all projects nav items & add event listener to allow selection of nav items
-  for (let index = 0; index < projectsNavItems.length; index++) {
-    const projectNavItem = projectsNavItems[index];
-    projectNavItem.addEventListener("click", (event) => {
-      removeCSSClassFromHTMLElementCollection(
-        projectsNavItems,
-        "projects-nav-item-selected"
-      );
-      removeCSSClassFromHTMLElementCollection(projects, "project-selected");
-      setSelectedProject(index);
-      if (event.target.tagName === "LI") {
-        event.target.classList.add("projects-nav-item-selected");
-      } else {
-        event.target.parentElement.classList.add("projects-nav-item-selected");
-      }
-    });
+    // Iterate over all projects nav items & add event listener to allow selection of nav items
+    for (let index = 0; index < projectsNavItems.length; index++) {
+      const projectNavItem = projectsNavItems[index];
+      projectNavItem.addEventListener("click", (event) => {
+        removeCSSClassFromHTMLElementCollection(
+          projectsNavItems,
+          "projects-nav-item-selected"
+        );
+        removeCSSClassFromHTMLElementCollection(projects, "project-selected");
+        setSelectedProject(index);
+        if (event.target.tagName === "LI") {
+          event.target.classList.add("projects-nav-item-selected");
+        } else {
+          event.target.parentElement.classList.add(
+            "projects-nav-item-selected"
+          );
+        }
+      });
+    }
+  } else if (page === "store.html") {
+    // Randomize amount that products in the store rotate when hovered
+    let neg = -1;
+    for (let index = 0; index < products.length; index++) {
+      const product = products[index];
+      const randomDeg = 3 * Math.ceil(Math.random() * 3) * neg;
+      neg *= -1;
+      product.addEventListener("mouseenter", (event) => {
+        event.target.style.transform =
+          "rotate(" + randomDeg + "deg) translateY(-20px)";
+      });
+      product.addEventListener("mouseleave", (event) => {
+        event.target.style.transform = "rotate(0deg) translateY(0)";
+      });
+    }
   }
 };
