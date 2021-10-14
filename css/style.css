@@ -9,6 +9,12 @@
   font-family: "Lora";
 }
 
+p {
+  font-size: 150%;
+  text-align: justify;
+  text-shadow: 1px 1px #000000;
+}
+
 h1,
 h2,
 h3,
@@ -16,6 +22,11 @@ h4,
 h5,
 h6 {
   font-family: "Bangers";
+  letter-spacing: 2px;
+}
+
+h1 {
+  text-shadow: 5px 5px #000000;
 }
 
 .page-wrapper {
@@ -49,9 +60,9 @@ h6 {
 #menu-button {
   font-family: "Bangers";
   position: fixed;
-  opacity: 0.2;
+  /* opacity: 0.2; */
   top: 50%;
-  right: -100px;
+  right: -70px;
   transform: translateY(-50%);
   content: "";
   font-size: 150%;
@@ -110,7 +121,7 @@ h6 {
 #projects-navlink:hover,
 #merchandise-navlink:hover,
 #contact-us-navlink:hover {
-  text-shadow: 3px 3px #333333;
+  text-shadow: 5px 5px #000000;
 }
 
 .menu-visible {
@@ -163,7 +174,10 @@ html {
   display: flex;
   height: 80%;
   width: 100%;
-  background-color: #1f1f1f;
+  /* backgrond-color: #1f1f1f; */
+  background-image: url("../images/background_dark.jpg");
+  background-size: 135%;
+  background-position: right;
   color: white;
 }
 
@@ -191,6 +205,7 @@ html {
 .homepage-center-left h1 {
   font-size: 300%;
   margin: 0 0 15px 0;
+  text-shadow: 5px 5px #000000;
 }
 
 .home-page-img {
@@ -229,7 +244,9 @@ html {
 /**************/
 
 .store-page {
-  background-color: #c2344e;
+  background-image: url("../images/background_red.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .store-page h1 {
@@ -250,7 +267,7 @@ html {
 }
 
 .productDiv {
-  border: solid 1px;
+  border: solid 3px;
   width: 280px;
   height: 280px;
   float: left;
@@ -263,7 +280,7 @@ html {
 .productDiv:hover {
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.5), 0px 20px 5px rgba(0, 0, 0, 0.5);
   transform: translateY(-20px) rotate(5deg);
-  border: solid 1px white;
+  /* border: solid 1px white; */
 }
 
 .imgText {
@@ -288,108 +305,6 @@ html {
   align-items: center;
 }
 
-/**************************/
-/* About / Contact Us Page*/
-/**************************/
-
-.about-contact-page {
-  color: white;
-  background-color: #254e70;
-}
-
-#AboutUs {
-  text-align: center;
-}
-
-#OurTeam {
-  text-align: center;
-  margin: 50px 0 0 0;
-}
-
-#Description {
-  text-align: center;
-}
-
-#Team {
-  display: flex;
-  text-align: center;
-  width: 100%;
-}
-
-.contact-us-row {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-}
-
-.about-us-img {
-  border-radius: 50%;
-  width: 190%;
-  height: 75%;
-}
-
-.center-image-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#Kiara {
-  padding: 10%;
-  text-align: center;
-  /*border: 1px solid rgb(235, 14, 14);*/
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-#Alex {
-  padding: 10%;
-  /*border: 1px solid rgb(235, 14, 14);*/
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-#Matthew {
-  padding: 10%;
-  /*border: 1px solid rgb(235, 14, 14);*/
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-#Ayla {
-  padding: 10%;
-  /*border: 1px solid rgb(235, 14, 14);*/
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-/*div{border: 1px solid black;}*/
-
-#left {
-  float: left;
-  padding: 10px;
-  width: 50%;
-  padding-top: 0px;
-  padding-left: 3%;
-}
-
-#right {
-  float: right;
-  padding: 10px;
-  width: 50%;
-  padding-top: 0px;
-  padding-left: 3%;
-  border-left: 1px solid black;
-}
-
-.about-us-h1 {
-  padding-bottom: 0px;
-  text-decoration: underline;
-  text-align: center;
-  margin: 0 0 50px 0;
-}
-
 /************/
 /* Projects */
 /************/
@@ -400,6 +315,7 @@ html {
 }
 
 .projects-top {
+  border: 5px solid black;
   background-color: #c2344e;
   position: absolute;
   top: -150px;
@@ -410,7 +326,9 @@ html {
 }
 
 .projects-center {
-  background-color: #eaba6b;
+  background-image: url("../images/background_orange_softer.jpg");
+  background-size: 130%;
+  background-position: right;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -426,6 +344,7 @@ html {
   height: 30%;
   transform: rotate(-3deg);
   z-index: 2;
+  border: 5px solid black;
 }
 
 .projects-nav {
@@ -474,7 +393,6 @@ html {
 
 .projects-nav-item-selected {
   padding: 0 0 0 50px;
-  text-shadow: 0 0 20px white;
   opacity: 1;
 }
 
@@ -483,6 +401,7 @@ html {
   font-family: "Bangers";
   z-index: 1;
   cursor: pointer;
+  text-shadow: 2px 2px #ffffff;
 }
 
 .project {
@@ -516,6 +435,7 @@ html {
 }
 
 .project-title {
+  text-shadow: 5px 5px #000000;
   font-family: "Bangers";
   text-align: center;
   font-size: 450%;
@@ -525,11 +445,13 @@ html {
 }
 
 .project-description {
+  font-weight: bold;
   font-family: "Lora";
-  font-size: 150%;
   width: 100%;
   color: white;
+  font-size: 150%;
   text-align: justify;
+  text-shadow: 1px 1px 3px #000000;
 }
 
 .project-image-area {
@@ -549,7 +471,7 @@ html {
   height: 90%;
   transform: rotate(-3deg) skewX(5deg) skewY(5deg);
   background: rgb(255, 255, 255);
-  border: 10px solid rgb(0, 0, 0);
+  border: 5px solid rgb(0, 0, 0);
 }
 
 .project-image-area img {
