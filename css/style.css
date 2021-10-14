@@ -6,6 +6,16 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Lora";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Bangers";
 }
 
 .page-wrapper {
@@ -17,12 +27,27 @@
   flex-direction: column;
   padding: 100px 50px 100px 50px;
 }
+/*********/
+/* Fonts */
+/*********/
+
+@font-face {
+  font-family: "Bangers";
+  src: url("../fonts/Bangers.ttf");
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("../fonts/Lora-Italic-VariableFont_wght.ttf"),
+    url("../fonts/Lora-VariableFont_wght.ttf");
+}
 
 /********/
 /* Menu */
 /********/
 
 #menu-button {
+  font-family: "Bangers";
   position: fixed;
   opacity: 0.2;
   top: 50%;
@@ -71,6 +96,7 @@
   color: white;
   font-size: 500%;
   cursor: pointer;
+  font-family: "Bangers";
 }
 
 #home-navlink,
@@ -204,6 +230,15 @@ html {
 
 .store-page {
   background-color: #c2344e;
+}
+
+.store-page h1 {
+  font-size: 350%;
+  color: white;
+}
+
+.productDiv h4 {
+  font-family: "Lora";
 }
 
 .productimg {
