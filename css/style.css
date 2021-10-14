@@ -389,3 +389,171 @@ html {
   text-align: center;
   margin: 0 0 50px 0;
 }
+
+/************/
+/* Projects */
+/************/
+
+.projects-page {
+  padding: 0;
+  position: relative;
+}
+
+.projects-top {
+  background-color: #c2344e;
+  position: absolute;
+  top: -150px;
+  width: 110%;
+  height: 30%;
+  transform: rotate(3deg);
+  z-index: 2;
+}
+
+.projects-center {
+  background-color: #eaba6b;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 100%;
+}
+
+.projects-bottom {
+  background-color: #c2344e;
+  position: absolute;
+  bottom: -150px;
+  width: 110%;
+  height: 30%;
+  transform: rotate(-3deg);
+  z-index: 2;
+}
+
+.projects-nav {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 50%;
+  width: auto;
+  z-index: 900;
+}
+
+.projects-nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  list-style: none;
+  height: 100%;
+}
+
+.projects-nav-item {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 -25px;
+  width: 350px;
+  height: 100px;
+  transition: all cubic-bezier(0.19, 1, 0.165, 1.01) 0.5s;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.projects-nav-item:hover {
+  padding: 0 0 0 50px;
+  opacity: 1;
+}
+
+.projects-nav-item::before {
+  display: flex;
+  content: "";
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: black;
+  margin: 0 10px 0 0;
+}
+
+.projects-nav-item-selected {
+  padding: 0 0 0 50px;
+  text-shadow: 0 0 20px white;
+  opacity: 1;
+}
+
+.projects-nav-item-label {
+  font-size: 200%;
+  font-family: "Bangers";
+  z-index: 1;
+  cursor: pointer;
+}
+
+.project {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: flex;
+  width: 80%;
+  height: 60%;
+  padding: 10px 50px 10px 50px;
+  z-index: 1;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  transition: all cubic-bezier(0.19, 1, 0.165, 1.01) 0.5s;
+}
+
+.project-selected {
+  opacity: 1 !important;
+}
+
+.project-text-area {
+  width: 40%;
+  height: 100%;
+  overflow-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-title {
+  font-family: "Bangers";
+  text-align: center;
+  font-size: 450%;
+  width: 100%;
+  margin: 0 0 50px 0;
+  color: white;
+}
+
+.project-description {
+  font-family: "Lora";
+  font-size: 150%;
+  width: 100%;
+  color: white;
+  text-align: justify;
+}
+
+.project-image-area {
+  width: 50%;
+  height: 85%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-image-area:before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 55%;
+  height: 90%;
+  transform: rotate(-3deg) skewX(5deg) skewY(5deg);
+  background: rgb(255, 255, 255);
+  border: 10px solid rgb(0, 0, 0);
+  box-shadow: 0px 0px 15px rgb(0, 0, 0), 3px 3px 5px #000;
+}
+
+.project-image-area img {
+  max-width: 100%;
+  height: auto;
+}
