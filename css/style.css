@@ -174,10 +174,9 @@ html {
   display: flex;
   height: 80%;
   width: 100%;
-  /* backgrond-color: #1f1f1f; */
   background-image: url("../images/background_dark.jpg");
   background-size: 135%;
-  background-position: right;
+  background-position: left;
   color: white;
 }
 
