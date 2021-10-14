@@ -550,7 +550,6 @@ html {
   transform: rotate(-3deg) skewX(5deg) skewY(5deg);
   background: rgb(255, 255, 255);
   border: 10px solid rgb(0, 0, 0);
-  box-shadow: 0px 0px 15px rgb(0, 0, 0), 3px 3px 5px #000;
 }
 
 .project-image-area img {
