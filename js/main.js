@@ -36,7 +36,14 @@ function setSelectedHomepageItem(
   }
 }
 
-function setSelectedProject(projectIndex) {
+function setSelectedProject(projects, projectNavItems, projectIndex) {
+  removeCSSClassFromHTMLElementCollection(projects, "project-selected");
+  removeCSSClassFromHTMLElementCollection(
+    projectNavItems,
+    "projects-nav-item-selected"
+  );
+  projectNavItems[projectIndex].classList.add("projects-nav-item-selected");
+
   const targetProject = document.getElementById(
     "project-" + (projectIndex + 1)
   );
@@ -84,25 +91,19 @@ window.onload = () => {
     window.location.href = "store.html";
   });
   contactUsNavLink.addEventListener("click", () => {
-    window.location.href = "AboutUs.html";
+    window.location.href = "about-us.html";
   });
 
   // Check what page this javascript is getting called from
   if (page === "projects.html") {
     // Set selected project to first project
-    setSelectedProject(0);
-    projectsNavItems[0].classList.add("projects-nav-item-selected");
+    setSelectedProject(projects, projectsNavItems, 0);
 
     // Iterate over all projects nav items & add event listener to allow selection of nav items
     for (let index = 0; index < projectsNavItems.length; index++) {
       const projectNavItem = projectsNavItems[index];
       projectNavItem.addEventListener("click", (event) => {
-        removeCSSClassFromHTMLElementCollection(
-          projectsNavItems,
-          "projects-nav-item-selected"
-        );
-        removeCSSClassFromHTMLElementCollection(projects, "project-selected");
-        setSelectedProject(index);
+        setSelectedProject(projects, projectsNavItems, index);
         if (event.target.tagName === "LI") {
           event.target.classList.add("projects-nav-item-selected");
         } else {
