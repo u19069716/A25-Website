@@ -9,6 +9,33 @@ function removeCSSClassFromHTMLElementCollection(elementCollection, cssClass) {
   }
 }
 
+function setSelectedHomepageItem(
+  homepageItems,
+  homepageContentItems,
+  homepageItemIndex
+) {
+  removeCSSClassFromHTMLElementCollection(
+    homepageItems,
+    "homepage-item-selected"
+  );
+  removeCSSClassFromHTMLElementCollection(
+    homepageContentItems,
+    "homepage-content-item-selected"
+  );
+  for (let index = 0; index < homepageContentItems.length; index++) {
+    if (index === homepageItemIndex) {
+      const element = homepageContentItems[index];
+      element.classList.add("homepage-content-item-selected");
+    }
+  }
+  for (let index = 0; index < homepageItems.length; index++) {
+    if (index === homepageItemIndex) {
+      const element = homepageItems[index];
+      element.classList.add("homepage-item-selected");
+    }
+  }
+}
+
 function setSelectedProject(projectIndex) {
   const targetProject = document.getElementById(
     "project-" + (projectIndex + 1)
@@ -36,6 +63,10 @@ window.onload = () => {
   const projectsNavItems = document.getElementsByClassName("projects-nav-item");
   const projects = document.getElementsByClassName("project");
   const products = document.getElementsByClassName("productDiv");
+  const homepageItems = document.getElementsByClassName("homepage-item");
+  const homepageContentItems = document.getElementsByClassName(
+    "homepage-content-item"
+  );
 
   // Add event listener to menu button to display menu when clicked
   menuButton.addEventListener("click", () => {
@@ -94,6 +125,45 @@ window.onload = () => {
       });
       product.addEventListener("mouseleave", (event) => {
         event.target.style.transform = "rotate(0deg) translateY(0)";
+      });
+    }
+  } else if (page == "index.html") {
+    // Enable continuous scroll through homepage items
+    let intervalIndex = 0;
+    setSelectedHomepageItem(homepageItems, homepageContentItems, intervalIndex);
+    let homepageInterval = setInterval(() => {
+      if (intervalIndex == homepageItems.length - 1) {
+        intervalIndex = 0;
+      } else {
+        intervalIndex++;
+      }
+      setSelectedHomepageItem(
+        homepageItems,
+        homepageContentItems,
+        intervalIndex
+      );
+    }, 5000);
+
+    // Iterate over homepage items and add event listeners to enable selection of homepage items
+    for (let index = 0; index < homepageItems.length; index++) {
+      const element = homepageItems[index];
+      element.addEventListener("click", (event) => {
+        clearInterval(homepageInterval);
+        // Reset continuous scroll counter everytime an item is selected
+        homepageInterval = setInterval(() => {
+          if (intervalIndex == homepageItems.length - 1) {
+            intervalIndex = 0;
+          } else {
+            intervalIndex++;
+          }
+          setSelectedHomepageItem(
+            homepageItems,
+            homepageContentItems,
+            intervalIndex
+          );
+        }, 5000);
+        intervalIndex = index;
+        setSelectedHomepageItem(homepageItems, homepageContentItems, index);
       });
     }
   }
