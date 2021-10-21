@@ -122,8 +122,7 @@ h3 {
   align-items: center;
   height: 100%;
   width: 100%;
-  /* background-color: #eaba6b; */
-  background-image: url("../images/background_purple.png");
+  background-color: #eaba6b;
   background-size: cover;
   z-index: 999;
   transition: all cubic-bezier(0.19, 1, 0.165, 1.01) 0.5s;
