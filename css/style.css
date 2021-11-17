@@ -91,7 +91,7 @@ nav {
 }
 
 .nav-item {
-  width: 10%;
+  width: 15%;
   font-size: 36px;
   color: black;
   text-align: center;
@@ -121,7 +121,7 @@ nav {
 .carousel-nav-bar {
   height: 100%;
   width: 300px;
-  background-color: brown;
+  background-color: rgb(155, 155, 155);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -144,14 +144,14 @@ nav {
 .carousel-content {
   height: 100%;
   flex-grow: 1;
-  background-color: pink;
+  background-color: rgb(195, 195, 195);
 }
 
 footer {
   display: flex;
   width: 100%;
   height: 200px;
-  background-color: yellow;
+  background-color:rgb(177, 177, 177);
   justify-content: center;
   align-items: center;
   position: relative;
@@ -195,6 +195,12 @@ footer {
   height: 980px;
   display: flex;
   padding: 50px;
+  flex-direction: column;
+}
+
+.page-section {
+  margin: 0 0 50px 0;
+  width: 100%;
 }
 
 /* Homepage */
@@ -215,14 +221,15 @@ footer {
 
 .logo-section-left-container {
   width: 300px;
-  background-color: red;
+  background-color: rgb(63, 63, 63);
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .logo-section-right-container {
   flex-grow: 1;
-  background-color: blue;
+  background-color: rgb(98, 98, 98);
   flex-direction: column;
   justify-content: center;
   align-items: left;
@@ -230,3 +237,44 @@ footer {
 }
 
 /* About Us Page */
+
+.employee {
+  width: 250px;
+  height: 250px;
+  background-color: black;
+}
+
+.employees-container {
+  justify-content: space-around;
+  align-items: center;
+  height: 400px;
+  flex-wrap: nowrap;
+  display: flex;
+  margin: 0;
+}
+
+/* Contact Us Page */
+
+
+.contact-us-section {
+  padding: 0;
+  flex-direction: row;
+}
+
+.contact-us-left-section, 
+.contact-us-right-section {
+  height: 100%;
+
+}
+
+.contact-us-left-section {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 50px;
+}
+
+.contact-us-right-section {
+  width: 70%;
+}
