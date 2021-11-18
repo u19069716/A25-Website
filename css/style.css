@@ -133,7 +133,6 @@ nav {
 .logo {
   width: 250px;
   height: 250px;
-  /* border-radius: 50%; */
   background-image: url("../images/logo.png");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -143,6 +142,13 @@ nav {
 footer .logo {
   width: 150px;
   height: 150px;
+}
+
+.footer-social-media-links i {
+  font-size: 36px;
+  margin: 0 5px 0 5px;
+  color: var(--white);
+  cursor: pointer;
 }
 
 .carousel {
@@ -315,6 +321,11 @@ footer {
   height: 100%;
 }
 
+.footer-link-container p {
+  color: var(--white);
+  font-size: 18px;
+}
+
 .footer-navigation-links {
   display: flex;
   justify-content: center;
@@ -325,7 +336,7 @@ footer {
   font-family: "Bebas Neue";
   font-size: 24px;
   margin: 0 5px 0 5px;
-  color: black;
+  color: var(--white);
 }
 
 .fullscreen-section {
@@ -580,11 +591,14 @@ footer {
 
 .store-section {
   background-color: var(--orange);
+  flex-direction: row;
+  position: relative;
 }
 
 .carousel-store {
   height: 100%;
   width: 1420px;
+  margin: 0 auto 50px 0;
 }
 
 .carousel-content-store {
@@ -681,6 +695,88 @@ footer {
 .product-back .button {
   position: unset;
   margin: 50px 0 0 0;
+}
+
+.cart-area {
+  width: 400px;
+  height: 100%;
+  background-color: var(--yellow);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+}
+
+.cart-items-area {
+  width: 100%;
+  height: 80%;
+  overflow-y: scroll;
+}
+
+.cart-total-area {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-total-area .button {
+  width: 120px;
+}
+
+#cart-total-items {
+  width: 100%;
+  font-family: "Actor";
+  font-size: 24px;
+  text-align: center;
+  margin: 0 0 15px 0;
+}
+
+#cart-total-amount {
+  width: 100%;
+  font-family: "Actor";
+  font-size: 36px;
+  text-align: center;
+}
+
+.cart-item {
+  width: 100%;
+  height: 150px;
+  background-color: var(--orange);
+  margin: 0 0 25px 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 10px;
+}
+
+.cart-item-title {
+  width: 100%;
+  font-family: "Actor";
+  font-size: 24px;
+  text-align: left;
+}
+
+.cart-item-subtitle {
+  width: 100%;
+  font-family: "Actor";
+  font-size: 18px;
+  text-align: left;
+}
+
+.cart-item-price {
+  width: 100%;
+  font-family: "Actor";
+  font-size: 18px;
+  text-align: right;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
 }
 
 /* Animations */

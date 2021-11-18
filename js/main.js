@@ -169,13 +169,46 @@ window.onload = () => {
   // Initialize carousels
   InitCarousels(carousels);
 
-  // Add an event listener to show/hide the trailer at the correct time
-  document.getElementById("trailer-section").addEventListener("click", () => {
-    setTimeout(() => {
-      document.getElementById("trailer").style.display = "block";
-    }, 500);
-  });
-  document.getElementById("movie-description").addEventListener("click", () => {
-    document.getElementById("trailer").style.display = "none";
-  });
+  if (page === "projects.html") {
+    // Add an event listener to show/hide the trailer at the correct time
+    document.getElementById("trailer-section").addEventListener("click", () => {
+      setTimeout(() => {
+        document.getElementById("trailer").style.display = "block";
+      }, 500);
+    });
+    document
+      .getElementById("movie-description")
+      .addEventListener("click", () => {
+        document.getElementById("trailer").style.display = "none";
+      });
+  } else if (page === "store.html") {
+    // Add to cart interactivity
+    const cartArea = document.getElementById("cart-area");
+    const addToCartButtons = document.getElementsByClassName("add-to-cart");
+    const cartTotalAmount = document.getElementById("cart-total-amount");
+    const cartTotalItems = document.getElementById("cart-total-items");
+
+    for (let i = 0; i < addToCartButtons.length; i++) {
+      const addToCartButton = addToCartButtons[i];
+      addToCartButton.addEventListener("click", () => {
+        const cartItem = document.createElement("div");
+        const cartItemTitle = document.createElement("div");
+        const cartItemSubtitle = document.createElement("div");
+        const cartItemPrice = document.createElement("div");
+        cartItem.classList.add("cart-item");
+        cartItemTitle.classList.add("cart-item-title");
+        cartItemTitle.innerText = "Cart Item Title";
+        cartItemSubtitle.classList.add("cart-item-subtitle");
+        cartItemSubtitle.innerText = "Cart Item Subtitle";
+        cartItemPrice.classList.add("cart-item-price");
+        cartItemPrice.innerText = "R999.99";
+        cartItem.appendChild(cartItemTitle);
+        cartItem.appendChild(cartItemSubtitle);
+        cartItem.appendChild(cartItemPrice);
+        cartArea.appendChild(cartItem);
+        cartTotalAmount.innerText = "R" + cartArea.children.length * 999.9;
+        cartTotalItems.innerText = cartArea.children.length + " Items";
+      });
+    }
+  }
 };
