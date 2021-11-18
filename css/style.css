@@ -4,7 +4,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: var(--black);
 }
+
 html,
 body {
   width: 100vw;
@@ -19,11 +21,21 @@ h4,
 h5,
 h6 {
   font-family: "Bebas Neue";
-  text-shadow: 4px 4px #fff;
 }
 
 h1 {
   font-size: 72px;
+  text-shadow: 4px 4px var(--white);
+}
+
+h2 {
+  font-size: 48px;
+  text-shadow: 3px 3px var(--white);
+}
+
+h3 {
+  font-size: 36px;
+  text-shadow: 2px 2px var(--white);
 }
 
 p {
@@ -59,9 +71,13 @@ a:visited {
 
 /* Variables */
 :root {
-  /* Homepage */
-  --logo-section-background: rgb(82, 82, 82);
-  --homepage-text-left-padding: 50px;
+  --dark-blue: #254e70;
+  --light-blue: #3375ac;
+  --white: #e7e4e7;
+  --orange: #df9a57;
+  --yellow: #eaba6b;
+  --black: rgb(26, 26, 26);
+  --red: #a30000;
 }
 
 /* Fonts */
@@ -84,24 +100,49 @@ a:visited {
 nav {
   width: 100%;
   height: 100px;
-  background-color: grey;
+  background-color: var(--dark-blue);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   width: 15%;
   font-size: 36px;
-  color: black;
+  color: var(--white);
   text-align: center;
+  position: relative;
+}
+
+.nav-item::after {
+  position: absolute;
+  width: 100%;
+  height: var(--nav-item-selection-indicator-height, 0);
+  transition: var(--nav-item-transition, "none");
+  background-color: var(--light-blue);
+  content: "";
+  bottom: 0;
+  left: 0;
+  z-index: 10;
 }
 
 .logo {
+  width: 250px;
+  height: 250px;
+  /* border-radius: 50%; */
+  background-image: url("../images/logo.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+footer .logo {
   width: 150px;
   height: 150px;
-  border-radius: 50%;
-  background-color: white;
 }
 
 .carousel {
@@ -111,17 +152,16 @@ nav {
 
 .carousel-small {
   height: 600px;
-  background-color: green;
 }
 
 .carousel-large {
-  height: 980px;
+  height: 780px;
 }
 
 .carousel-nav-bar {
   height: 100%;
   width: 300px;
-  background-color: rgb(155, 155, 155);
+  background-color: var(--orange);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -130,28 +170,126 @@ nav {
 
 .carousel-nav-item {
   display: flex;
-  width: 280px;
-  height: 50px;
-  background-color: black;
-  color: white;
-  margin-bottom: 10px;
+  width: 250px;
+  height: 60px;
+  background-color: var(--black);
+  color: var(--white);
+  margin-bottom: 20px;
   align-items: center;
   justify-content: center;
   font-family: "Bebas Neue";
-  font-size: 36px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all cubic-bezier(0.19, 1, 0.165, 1) 0.5s;
+}
+
+.carousel-nav-item:hover {
+  transform: translateX(10px) translateY(-10px);
+  box-shadow: -10px 10px var(--white);
+}
+
+.carousel-nav-item:active {
+  transform: translateX(5px) translateY(-5px);
+  box-shadow: -5px 5px var(--white);
+}
+
+.carousel-nav-item::selection {
+  color: none;
+  background: none;
+}
+
+.carousel-content-container {
+  background-color: var(--orange);
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  position: relative;
 }
 
 .carousel-content {
+  display: flex;
+  z-index: -1;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  align-items: center;
+  width: 100%;
   height: 100%;
-  flex-grow: 1;
-  background-color: rgb(195, 195, 195);
+  flex-shrink: 0;
+  transform: translateX(-20%);
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: var(--carousel-content-transition, "none");
+  background-color: var(--orange);
+}
+.carousel-content h2 {
+  width: 100%;
+  text-align: left;
+}
+
+.carousel-content-large {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.carousel-inner-content-container {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.carousel-inner-content {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translateX(20%);
+  transition: var(--carousel-content-transition, "none");
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+
+.carousel-content-selected {
+  transform: translateX(0) translateY(0);
+  opacity: 1;
+  z-index: 1;
+}
+
+.carousel-content-inner-indicator-container {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-content-inner-indicator {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: rgb(112, 112, 112);
+  margin: 0 5px 0 5px;
+  cursor: pointer;
+}
+.carousel-content-inner-indicator-selected {
+  background-color: rgb(14, 14, 14);
 }
 
 footer {
   display: flex;
   width: 100%;
   height: 200px;
-  background-color:rgb(177, 177, 177);
+  background-color: var(--dark-blue);
   justify-content: center;
   align-items: center;
   position: relative;
@@ -203,12 +341,61 @@ footer {
   width: 100%;
 }
 
+.button {
+  text-align: center;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  background-color: var(--white);
+  align-items: center;
+  justify-content: center;
+  font-family: "Bebas Neue";
+  font-size: 24px;
+  cursor: pointer;
+  transition: all cubic-bezier(0.19, 1, 0.165, 1) 0.5s;
+}
+
+.button:hover {
+  transform: translateX(10px) translateY(-10px);
+  box-shadow: -10px 10px var(--black);
+}
+
+.button:active {
+  transform: translateX(5px) translateY(-5px);
+  box-shadow: -5px 5px var(--black);
+}
+
+.button::selection {
+  color: none;
+  background: none;
+}
+
+.carousel-content .button {
+  position: absolute;
+  bottom: 150px;
+  left: 50px;
+}
+
+.carousel-inner-content .button {
+  position: unset;
+  width: 150px;
+}
+
+.page-title-container {
+  width: 100%;
+  height: 200px;
+  background-color: var(--light-blue);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 50px;
+}
+
 /* Homepage */
 
 .logo-section {
   width: 100%;
   height: 380px;
-  background-color: var(--logo-section-background);
   display: flex;
   flex-wrap: nowrap;
 }
@@ -221,7 +408,8 @@ footer {
 
 .logo-section-left-container {
   width: 300px;
-  background-color: rgb(63, 63, 63);
+  background-color: var(--light-blue);
+
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
@@ -229,19 +417,104 @@ footer {
 
 .logo-section-right-container {
   flex-grow: 1;
-  background-color: rgb(98, 98, 98);
+  background-color: var(--light-blue);
   flex-direction: column;
   justify-content: center;
   align-items: left;
-  padding-left: var(--homepage-text-left-padding);
+  padding-left: 50px;
+}
+
+.film-background {
+  background-image: url("../images/film_tile.png");
+  background-size: 150px;
+}
+
+.animation-background {
+  background-image: url("../images/animation_tile.png");
+  background-size: 150px;
+}
+
+.web-background {
+  background-image: url("../images/web_tile.png");
+  background-size: 150px;
+}
+
+.branding-background {
+  background-image: url("../images/branding_tile.png");
+  background-size: 150px;
+}
+
+.design-background {
+  background-image: url("../images/design_tile.png");
+  background-size: 150px;
+}
+
+.sliding-background {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  position: absolute;
+}
+
+.sliding-background-inner {
+  height: 100%;
+  min-width: 1800px;
+  z-index: -1;
+  animation: slide 20s linear infinite;
 }
 
 /* About Us Page */
 
+.about-us-section {
+  justify-content: space-around;
+  background-color: var(--orange);
+}
+
 .employee {
   width: 250px;
   height: 250px;
-  background-color: black;
+  background-size: contain;
+}
+
+.employee-alex {
+  background-image: url("../images/Alex.jpg");
+}
+
+.employee-ayla {
+  background-image: url("../images/Ayla.jpg");
+}
+
+.employee-matthew {
+  background-image: url("../images/Mathew.jpg");
+}
+
+.employee-kiara {
+  background-image: url("../images/Kiara.jpg");
+}
+
+.employee:hover .employee-text {
+  opacity: 1;
+}
+
+.employee-text {
+  opacity: 0;
+  color: white;
+  transition: all cubic-bezier(0.19, 1, 0.165, 1) 0.5s;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--orange);
+  width: 100%;
+  height: 100%;
+}
+
+.employee-text a {
+  font-family: "Actor";
+  font-size: 24px;
 }
 
 .employees-container {
@@ -255,16 +528,14 @@ footer {
 
 /* Contact Us Page */
 
-
 .contact-us-section {
   padding: 0;
   flex-direction: row;
 }
 
-.contact-us-left-section, 
+.contact-us-left-section,
 .contact-us-right-section {
   height: 100%;
-
 }
 
 .contact-us-left-section {
@@ -273,8 +544,151 @@ footer {
   flex-direction: column;
   flex-wrap: nowrap;
   padding: 50px;
+  background-color: var(--orange);
 }
 
 .contact-us-right-section {
   width: 70%;
+}
+
+/* Projects */
+
+.project-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-image-container img {
+  width: auto;
+  height: auto;
+  max-width: 60%;
+}
+
+.project-image-container video {
+  width: auto;
+  height: auto;
+  max-width: 60%;
+  margin: 75px 0 0 0;
+}
+
+#trailer {
+  display: none;
+}
+
+/* Store Page */
+
+.store-section {
+  background-color: var(--orange);
+}
+
+.carousel-store {
+  height: 100%;
+  width: 1420px;
+}
+
+.carousel-content-store {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.products-section {
+  width: 100%;
+  height: 100%;
+}
+
+.products-container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--yellow);
+  overflow-y: scroll;
+  flex-wrap: wrap;
+  display: flex;
+  padding: 50px;
+  justify-content: space-evenly;
+}
+
+.product {
+  width: 300px;
+  height: 400px;
+  margin: 15px;
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.product-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all cubic-bezier(0.19, 1, 0.165, 1) 0.8s;
+}
+
+.product-price {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  color: white;
+  background-color: var(--red);
+  position: absolute;
+  right: -5px;
+  top: -15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Actor";
+  font-size: 18px;
+}
+
+.product-front img {
+  width: auto;
+  height: 100%;
+}
+
+.product-front,
+.product-back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.product:hover .product-inner {
+  transform: rotateY(180deg);
+}
+
+.product-front {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-back {
+  transform: rotateY(180deg);
+  background-color: var(--light-blue);
+  padding: 15px;
+}
+
+.product-back h2 {
+  width: 100%;
+  text-align: center;
+}
+
+.product-back .button {
+  position: unset;
+  margin: 50px 0 0 0;
+}
+
+/* Animations */
+@keyframes slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
 }
