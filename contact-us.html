@@ -19,10 +19,16 @@
 
 <body>
     <div class="page-title-container">
+        <div class="logo"></div>
         <h1>Get in touch!</h1>
     </div>
     <div class="fullscreen-section contact-us-section">
         <div class="contact-us-left-section">
+            <div class="sliding-background">
+                <div class="sliding-background-inner contact-us-background"></div>
+                <div class="sliding-background-inner contact-us-background"></div>
+            </div>
+
             <div class="page-section">
                 <h2>Contact Us</h2>
                 <p><i class="fas fa-phone"></i> 012 345 6789</p>
@@ -31,6 +37,18 @@
             <div class="page-section">
                 <h2>Visit Us</h2>
                 <p><i class="fas fa-map-marker-alt"></i> 1319 Arcadia Street, Hatfield</p>
+            </div>
+            <div class="page-section">
+                <h2>Leave us a message</h2>
+                <form>
+                    <label>Name</label>
+                    <input id="contact-us-name" type="text">
+                    <label>Email</label>
+                    <input id="contact-us-email" type="text">
+                    <label>Message</label>
+                    <textarea id="contact-us-message" cols="30" rows="10"></textarea>
+                    <div id="contact-us-submit" class="button">Submit</div>
+                </form>
             </div>
         </div>
         <div class="contact-us-right-section">
@@ -53,18 +71,19 @@
             <a href="projects.html">Projects</a>
             <a href="store.html">Store</a>
             <a href="about-us.html">About Us</a>
-            <a href="contact-us.html">Contact Us</a>
+            <a href="contact-us.html" class="footer-navigation-link-selected">Contact Us</a>
         </div>
+        <p>follow us</p>
         <div class="footer-social-media-links">
-            <a href="">One</a>
-            <a href="">One</a>
-            <a href="">One</a>
-            <a href="">One</a>
-            <a href="">One</a>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-snapchat-ghost"></i>
+            <i class="fab fa-youtube"></i>
         </div>
-        <div class="footer-copyright">
+        <p>
             © 2021 A25 Studios
-        </div>
+        </p>
     </div>
 </footer>
 

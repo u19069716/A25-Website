@@ -121,9 +121,9 @@ function InitCarousels(carousels) {
         )
       ) {
         const carouselInnerContentContainer =
-          carouselContentContainer.children[j].children[0];
-        const carouselInnerIndicatorContainer =
           carouselContentContainer.children[j].children[1];
+        const carouselInnerIndicatorContainer =
+          carouselContentContainer.children[j].children[2];
         for (
           let k = 0;
           k < carouselInnerIndicatorContainer.children.length;
@@ -188,27 +188,83 @@ window.onload = () => {
     const cartTotalAmount = document.getElementById("cart-total-amount");
     const cartTotalItems = document.getElementById("cart-total-items");
 
+    let addedToCart = false;
+
     for (let i = 0; i < addToCartButtons.length; i++) {
       const addToCartButton = addToCartButtons[i];
-      addToCartButton.addEventListener("click", () => {
+      addToCartButton.addEventListener("click", (event) => {
         const cartItem = document.createElement("div");
         const cartItemTitle = document.createElement("div");
         const cartItemSubtitle = document.createElement("div");
         const cartItemPrice = document.createElement("div");
         cartItem.classList.add("cart-item");
         cartItemTitle.classList.add("cart-item-title");
-        cartItemTitle.innerText = "Cart Item Title";
+        cartItemTitle.innerText = event.target.dataset.title;
+        console.log();
         cartItemSubtitle.classList.add("cart-item-subtitle");
-        cartItemSubtitle.innerText = "Cart Item Subtitle";
+        cartItemSubtitle.innerText = event.target.dataset.subtitle;
         cartItemPrice.classList.add("cart-item-price");
         cartItemPrice.innerText = "R999.99";
         cartItem.appendChild(cartItemTitle);
         cartItem.appendChild(cartItemSubtitle);
         cartItem.appendChild(cartItemPrice);
+        if (
+          cartArea.children[0].innerText === "You have no items in your cart :("
+        ) {
+          cartArea.removeChild(cartArea.children[0]);
+          addedToCart = true;
+        }
         cartArea.appendChild(cartItem);
         cartTotalAmount.innerText = "R" + cartArea.children.length * 999.9;
         cartTotalItems.innerText = cartArea.children.length + " Items";
       });
     }
+    const checkoutButton = document.getElementById("checkout-button");
+    const checkoutScreen = document.getElementById("checkout-screen");
+    const checkoutAmount = document.getElementById("checkout-amount");
+    const checkoutCount = document.getElementById("checkout-items-count");
+    const checkoutSubmit = document.getElementById("submit-checkout");
+    const checkoutCancel = document.getElementById("cancel-checkout");
+
+    checkoutButton.addEventListener("click", () => {
+      if (addedToCart) {
+        checkoutScreen.style.display = "flex";
+        checkoutAmount.innerText = "R" + cartArea.children.length * 999.9;
+        checkoutCount.innerText = cartArea.children.length + " Items";
+      } else {
+        alert("Please add something to your cart before trying to check out!");
+      }
+    });
+
+    checkoutSubmit.addEventListener("click", () => {
+      checkoutScreen.style.display = "none";
+      addedToCart = false;
+      alert("Payment successful!");
+      while (cartArea.children.length > 0) {
+        var cartItem = cartArea.children[0];
+        cartArea.removeChild(cartItem);
+      }
+      cartTotalAmount.innerText = "";
+      cartTotalItems.innerText = "";
+      const noItemText = document.createElement("p");
+      noItemText.innerText = "You have no items in your cart :(";
+      cartArea.appendChild(noItemText);
+    });
+
+    checkoutCancel.addEventListener("click", () => {
+      checkoutScreen.style.display = "none";
+    });
+  } else if (page === "contact-us.html") {
+    const submitButton = document.getElementById("contact-us-submit");
+    const nameField = document.getElementById("contact-us-name");
+    const emailField = document.getElementById("contact-us-email");
+    const messageField = document.getElementById("contact-us-message");
+
+    submitButton.addEventListener("click", () => {
+      nameField.value = "";
+      emailField.value = "";
+      messageField.value = "";
+      alert("Message Sent!");
+    });
   }
 };

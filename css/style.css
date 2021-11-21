@@ -41,6 +41,7 @@ h3 {
 p {
   font-family: "Actor";
   font-size: 24px;
+  background-color: var(--orange);
 }
 
 a,
@@ -144,11 +145,34 @@ footer .logo {
   height: 150px;
 }
 
+.fab {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.footer-social-media-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 50px 0;
+}
+
 .footer-social-media-links i {
   font-size: 36px;
   margin: 0 5px 0 5px;
   color: var(--white);
   cursor: pointer;
+  transition: all cubic-bezier(0.19, 1, 0.165, 1) 0.5s;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-social-media-links i:hover {
+  text-shadow: -4px 4px var(--black);
+  font-size: 46px;
 }
 
 .carousel {
@@ -170,8 +194,9 @@ footer .logo {
   background-color: var(--orange);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  padding-top: 20px;
 }
 
 .carousel-nav-item {
@@ -218,7 +243,8 @@ footer .logo {
   display: flex;
   z-index: -1;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  /* justify-content: center; */
   padding: 50px;
   align-items: center;
   width: 100%;
@@ -294,7 +320,7 @@ footer .logo {
 footer {
   display: flex;
   width: 100%;
-  height: 200px;
+  height: 300px;
   background-color: var(--dark-blue);
   justify-content: center;
   align-items: center;
@@ -316,7 +342,7 @@ footer {
 .footer-link-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
   height: 100%;
 }
@@ -330,6 +356,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 50px;
 }
 
 .footer-navigation-links a {
@@ -337,6 +364,10 @@ footer {
   font-size: 24px;
   margin: 0 5px 0 5px;
   color: var(--white);
+}
+
+.footer-navigation-link-selected {
+  text-decoration: underline !important;
 }
 
 .fullscreen-section {
@@ -402,6 +433,11 @@ footer {
   padding: 50px;
 }
 
+.page-title-container .logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 50px 0 0;
+}
 /* Homepage */
 
 .logo-section {
@@ -460,6 +496,46 @@ footer {
   background-size: 150px;
 }
 
+.lyric-video-background {
+  background-image: url("../images/lyric_video_tile.png");
+  background-size: 150px;
+}
+
+.infographic-background {
+  background-image: url("../images/infographic_tile.png");
+  background-size: 150px;
+}
+
+.comic-background {
+  background-image: url("../images/comic_tile.png");
+  background-size: 150px;
+}
+
+.social-media-website-background {
+  background-image: url("../images/social_media_website_tile.png");
+  background-size: 150px;
+}
+
+.shortfilm-background {
+  background-image: url("../images/shortfilm_tile.png");
+  background-size: 150px;
+}
+
+.store-background {
+  background-image: url("../images/store_tile.png");
+  background-size: 150px;
+}
+
+.about-us-background {
+  background-image: url("../images/about_us_tile.png");
+  background-size: 150px;
+}
+
+.contact-us-background {
+  background-image: url("../images/contact_us_tile.png");
+  background-size: 150px;
+}
+
 .sliding-background {
   height: 100%;
   width: 100%;
@@ -468,26 +544,40 @@ footer {
   justify-content: flex-end;
   flex-wrap: nowrap;
   position: absolute;
+  z-index: -1;
 }
 
 .sliding-background-inner {
   height: 100%;
-  min-width: 1800px;
+  min-width: 3600px;
   z-index: -1;
-  animation: slide 20s linear infinite;
+  animation: slide 60s linear infinite;
 }
 
 /* About Us Page */
 
 .about-us-section {
   justify-content: space-around;
-  background-color: var(--orange);
+  position: relative;
+  padding: 0;
+}
+
+.about-us-section .page-section {
+  margin-left: 50px;
+  width: 90%;
 }
 
 .employee {
   width: 250px;
   height: 250px;
   background-size: contain;
+  margin: 15px;
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
 }
 
 .employee-alex {
@@ -506,26 +596,20 @@ footer {
   background-image: url("../images/Kiara.jpg");
 }
 
-.employee:hover .employee-text {
-  opacity: 1;
-}
-
 .employee-text {
-  opacity: 0;
   color: white;
   transition: all cubic-bezier(0.19, 1, 0.165, 1) 0.5s;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  background-color: var(--orange);
   width: 100%;
   height: 100%;
 }
 
 .employee-text a {
   font-family: "Actor";
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .employees-container {
@@ -535,6 +619,43 @@ footer {
   flex-wrap: nowrap;
   display: flex;
   margin: 0;
+}
+
+.employee-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all cubic-bezier(0.19, 1, 0.165, 1) 0.8s;
+}
+
+.employee-front,
+.employee-back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.employee:hover .employee-inner {
+  transform: rotateY(180deg);
+}
+
+.employee-front {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: contain;
+}
+
+.employee-back {
+  transform: rotateY(180deg);
+  background-color: var(--light-blue);
+  padding: 15px;
+}
+
+.employee-back p {
+  background-color: unset;
 }
 
 /* Contact Us Page */
@@ -554,12 +675,66 @@ footer {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  padding: 50px;
-  background-color: var(--orange);
+  position: relative;
+}
+
+.contact-us-left-section .page-section {
+  margin: 50px 0 0 50px;
+  width: 80%;
 }
 
 .contact-us-right-section {
   width: 70%;
+}
+
+.contact-us-left-section form {
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  background-color: var(--orange);
+  padding: 10px;
+  font-family: "Actor";
+}
+
+.contact-us-left-section form input,
+.contact-us-left-section form textarea {
+  padding: 10px;
+  font-family: "Actor";
+  font-size: 18px;
+  background-color: var(--orange);
+  border: 2px solid var(--black);
+  margin: 0 0 10px 0;
+}
+
+#checkout-screen {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.75);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkout-center {
+  width: 40%;
+  height: auto;
+  background-color: var(--orange);
+  padding: 50px;
+  box-shadow: -15px 15px 0 var(--black);
+}
+
+.checkout-center .button {
+  width: 200px;
+}
+
+.checkout-center-page-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 /* Projects */
@@ -591,54 +766,41 @@ footer {
 
 .store-section {
   background-color: var(--orange);
+  height: 1080px;
   flex-direction: row;
   position: relative;
+  padding: 0;
 }
 
 .carousel-store {
   height: 100%;
-  width: 1420px;
+  width: 1520px;
   margin: 0 auto 50px 0;
 }
 
 .carousel-content-store {
   align-items: flex-start;
   justify-content: flex-start;
+  padding: 0;
+}
+
+.carousel-content-store .page-section {
+  margin: 50px;
 }
 
 .products-section {
   width: 100%;
+  margin: 0 auto 50px auto;
   height: 100%;
+  border: inset 5px solid var(--orange);
 }
 
 .products-container {
   width: 100%;
   height: 100%;
-  background-color: var(--yellow);
-  overflow-y: scroll;
   flex-wrap: wrap;
   display: flex;
-  padding: 50px;
   justify-content: space-evenly;
-}
-
-.product {
-  width: 300px;
-  height: 400px;
-  margin: 15px;
-  flex-shrink: 0;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  perspective: 1000px;
-}
-
-.product-inner {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: all cubic-bezier(0.19, 1, 0.165, 1) 0.8s;
 }
 
 .product-price {
@@ -660,6 +822,25 @@ footer {
 .product-front img {
   width: auto;
   height: 100%;
+}
+
+.product {
+  width: 300px;
+  height: 400px;
+  margin: 15px;
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.product-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all cubic-bezier(0.19, 1, 0.165, 1) 0.8s;
 }
 
 .product-front,
@@ -777,6 +958,14 @@ footer {
   position: absolute;
   bottom: 15px;
   right: 15px;
+}
+
+.cart-area p,
+footer .footer-navigation-links,
+.footer-link-container p,
+.logo-section-right-container p,
+.product-back p {
+  background-color: unset;
 }
 
 /* Animations */
